@@ -1,0 +1,28 @@
+<mat-card class="card">
+  <div class="header-row">
+    <img src="/Logo-SETI.png" alt="Logo SETI" class="logo-seti">
+    <h2>Detector de Mutantes</h2>
+  </div>
+  <mat-form-field appearance="outline" class="full">
+    <textarea matInput placeholder="Pega aquí cada fila del ADN (una por línea)" [formControl]="dnaControl" rows="8"></textarea>
+  </mat-form-field>
+
+  <div class="buttons">
+    <button mat-raised-button color="primary" (click)="onCheck()">Validar</button>
+    <button mat-stroked-button (click)="onFillExample()">Ejemplo</button>
+    <button mat-button (click)="onClear()">Limpiar</button>
+  </div>
+
+  @if (result || error) {
+    <div class="result">
+      @if (error) {
+        <div class="error">{{ error }}</div>
+      }
+      @if (result && !error) {
+        <div class="ok">
+          Resultado: <strong>{{ result === 'mutante' ? 'MUTANTE' : 'HUMANO' }}</strong>
+        </div>
+      }
+    </div>
+  }
+</mat-card>
