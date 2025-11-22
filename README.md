@@ -1,59 +1,65 @@
-# DetectorMutantes
+ Detector de Mutantes
+Video funcionamiento de la aplicación: https://jam.dev/c/1e1edb3f-070e-424e-bf9e-83e39212fee9
+Este proyecto es una aplicación Angular que detecta si una secuencia de ADN pertenece a un mutante, según el desafío técnico de SETI.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
+## Descripción
 
-## Development server
+La app permite ingresar una matriz NxN de ADN (solo letras A, T, C, G) y determina si hay más de una secuencia de cuatro letras iguales en forma horizontal, vertical u oblicua. Si es así, el humano es mutante.
 
-To start a local development server, run:
+## Características
+- Validación visual y lógica de la matriz NxN.
+- Detección eficiente de secuencias mutantes en todas las direcciones.
+- Interfaz moderna con Angular Material.
+- Pruebas unitarias robustas.
+
+## Ejemplo de uso
+
+Secuencia mutante:
+```
+ATGCGA
+CAGTGC
+TTATGT
+AGAAGG
+CCCCTA
+TCACTG
+```
+Resultado: **MUTANTE**
+
+Secuencia humana:
+```
+ATGCGA
+CAGTGC
+TTATTT
+AGACGG
+GCGTCA
+TCACTG
+```
+Resultado: **HUMANO**
+
+## Instalación
+
+1. Clona el repositorio:
+	```
+	git clone <url-del-repo>
+	cd detector-mutantes
+	```
+2. Instala dependencias:
+	```
+	npm install
+	```
+3. Ejecuta la app:
+	```
+	npm start
+	```
+4. Abre en tu navegador: [http://localhost:4200](http://localhost:4200)
+
+## Ejecutar pruebas
 
 ```bash
-ng serve
+npm test
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Estructura principal
+- `src/app/services/mutant.ts`: Lógica de detección mutante.
+- `src/app/components/dna-input/`: Componente de entrada y validación de ADN.
+- `src/app/services/mutant.spec.ts`: Pruebas unitarias del servicio.
